@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { setAddOns } from "../Slice/Slice";
 import { useNavigate } from "react-router-dom";
 
-const AddOns = () => {
+const AddOnsMonthly = () => {
   const [selectedAddOns, setSelectedAddOns] = useState({
     onlineService: false,
     largerStorage: false,
@@ -121,4 +121,4 @@ const AddOns = () => {
   );
 };
 
-export default AddOns;
+export default AddOnsMonthly;
