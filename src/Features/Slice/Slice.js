@@ -6,11 +6,16 @@ const initialState = {
     email: "",
     phoneNumber: ""
   },
-  setAddOns: {
-    onlineService: "",
-    largerStorage: "",
-    customizableProfile: "",
-  }
+  setAddOnsMonthly: {
+    onlineService: false,
+    largerStorage: false,
+    customizableProfile: false,
+  },
+  setAddOnsYearly: {
+    onlineService: false,
+    largerStorage: false,
+    customizableProfile: false,
+  },
 };
 
 const formSlice = createSlice({
@@ -19,10 +24,16 @@ const formSlice = createSlice({
   reducers: {
     setPersonalInfo: (state, action) => {
       state.personalInfo = action.payload;
+    },
+    setAddOnsMonthly: (state, action) => {
+      state.setAddOnsMonthly = action.payload;
+    },
+    setAddOnsYearly: (state, action) => {
+      state.setAddOnsMonthly = action.payload;
     }
   }
 });
 
-export const { setPersonalInfo, setAddOns } = formSlice.actions;
+export const { setPersonalInfo, setAddOnsMonthly, setAddOnsYearly } = formSlice.actions;
 
 export default formSlice.reducer;

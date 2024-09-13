@@ -1,6 +1,60 @@
+// import React, { useState } from "react";
+// import { useDispatch } from "react-redux";
+// import { setAddOnsYearly } from "../Slice/Slice";
+// import { useNavigate } from "react-router-dom";
+
+// const AddOnsYearly = () => {
+//   const [selectedAddOns, setSelectedAddOns] = useState({
+//     onlineService: false,
+//     largerStorage: false,
+//     customizableProfile: false,
+//   });
+
+//   const dispatch = useDispatch();
+//   const navigate = useNavigate();
+
+//   const handleCheckboxChange = (e) => {
+//     setSelectedAddOns({
+//       ...selectedAddOns,
+//       [e.target.name]: e.target.checked,
+//     });
+//   };
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     dispatch(setAddOnsYearly(selectedAddOns));
+//     navigate("/summary");
+//   };
+
+//   return (
+//     <div>
+//       {/* Add your form content for AddOnsYearly */}
+//       <form onSubmit={handleSubmit}>
+//         {/* Form contents */}
+//         <div className="flex justify-between mt-10">
+//           <button
+//             type="button"
+//             className="text-blue-950 text-sm"
+//             onClick={() => navigate("/select-plan")}
+//           >
+//             Go Back
+//           </button>
+//           <button
+//             type="submit"
+//             className="bg-blue-950 text-white px-6 py-2 rounded-md"
+//           >
+//             Next Step
+//           </button>
+//         </div>
+//       </form>
+//     </div>
+//   );
+// };
+
+// export default AddOnsYearly;
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { setAddOns } from "../Slice/Slice";
+import { setAddOnsYearly } from "../Slice/Slice";
 import { useNavigate } from "react-router-dom";
 
 const AddOnsYearly = () => {
@@ -22,7 +76,7 @@ const AddOnsYearly = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(setAddOns(selectedAddOns));
+    dispatch(setAddOnsYearly(selectedAddOns));
     navigate("/summary");
   };
 
@@ -104,7 +158,7 @@ const AddOnsYearly = () => {
             <button
               type="button"
               className="text-blue-950 text-sm"
-              onClick={() => navigate("/select-plan")}
+              onClick={() => navigate("/add-ons")}
             >
               Go Back
             </button>
