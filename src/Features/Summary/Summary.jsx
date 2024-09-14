@@ -12,39 +12,44 @@ const Summary = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="summary-container bg-white p-6 rounded-lg shadow-md max-w-xl mx-auto">
-      <h2 className="text-2xl font-bold mb-6">Finishing Up</h2>
-      <p className="text-gray-500 mb-4">
+    <div className="summary-container bg-white px-6 rounded-lg max-w-xl mx-auto">
+      <h2 className="text-2xl font-bold mb-2">Finishing Up</h2>
+      <p className="text-gray-500 mb-10">
         Double-check everything looks OK before confirming.
       </p>
 
-      <div className="summary-details mb-4">
-        <h3 className="text-xl font-semibold">{selectedPlan?.name}</h3>
-        <p className="text-gray-500">
-          {selectedPlan?.monthly ? selectedPlan?.monthly : selectedPlan?.yearly}
-        </p>
+      <div className="main-container bg-gray-50 mb-10">
+        <div className="summary-details mb-4">
+          <h3 className="text-xl font-semibold">{selectedPlan?.name}</h3>
+          <p className="text-gray-500">
+            {selectedPlan?.monthly
+              ? selectedPlan?.monthly
+              : selectedPlan?.yearly}
+          </p>
+        </div>
+
+        <div className="addons-details">
+          <h3 className="text-xl font-semibold">Add-ons</h3>
+          {addOns.onlineService && (
+            <p className="text-gray-500">
+              Online Service: {selectedPlan?.yearly ? "+$10/yr" : "+$1/mo"}
+            </p>
+          )}
+          {addOns.largerStorage && (
+            <p className="text-gray-500">
+              Larger Storage: {selectedPlan?.yearly ? "+$20/yr" : "+$2/mo"}
+            </p>
+          )}
+          {addOns.customizableProfile && (
+            <p className="text-gray-500">
+              Customizable Profile:{" "}
+              {selectedPlan?.yearly ? "+$20/yr" : "+$2/mo"}
+            </p>
+          )}
+        </div>
       </div>
 
-      <div className="addons-details">
-        <h3 className="text-xl font-semibold">Add-ons</h3>
-        {addOns.onlineService && (
-          <p className="text-gray-500">
-            Online Service: {selectedPlan?.yearly ? "+$10/yr" : "+$1/mo"}
-          </p>
-        )}
-        {addOns.largerStorage && (
-          <p className="text-gray-500">
-            Larger Storage: {selectedPlan?.yearly ? "+$20/yr" : "+$2/mo"}
-          </p>
-        )}
-        {addOns.customizableProfile && (
-          <p className="text-gray-500">
-            Customizable Profile: {selectedPlan?.yearly ? "+$20/yr" : "+$2/mo"}
-          </p>
-        )}
-      </div>
-
-      <div className="mt-6 flex justify-between">
+      <div className="flex justify-between">
         <button
           type="button"
           className="text-blue-950 text-sm"
