@@ -17,6 +17,7 @@ const initialState = {
     customizableProfile: false,
   },
   selectedPlan: null,
+  setAddOns: false,
 };
 
 const formSlice = createSlice({
@@ -29,9 +30,7 @@ const formSlice = createSlice({
     setAddOnsMonthly: (state, action) => {
       state.setAddOnsMonthly = action.payload;
     },
-    // setAddOnsYearly: (state, action) => {
-    //   state.setAddOnsMonthly = action.payload;
-    // },
+    
     setAddOnsYearly: (state, action) => {
       state.setAddOnsYearly = action.payload;
     },
@@ -39,6 +38,11 @@ const formSlice = createSlice({
     setSelectedPlan: (state, action) => {
       state.selectedPlan = action.payload;
     },
+
+    setAddOns: (state, action) => {
+      state.setAddOns = action.payload;
+    },
+    
   },
 });
 
@@ -47,6 +51,7 @@ export const {
   setSelectedPlan,
   setAddOnsMonthly,
   setAddOnsYearly,
+  setAddOns,
 } = formSlice.actions;
 
 export default formSlice.reducer;
