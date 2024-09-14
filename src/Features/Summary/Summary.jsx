@@ -18,7 +18,7 @@ const Summary = () => {
         Double-check everything looks OK before confirming.
       </p>
 
-      <div className="main-container bg-gray-50 mb-10">
+      <div className="main-container bg-gray-50">
         <div className="summary-details mb-4">
           <h3 className="text-xl font-semibold">{selectedPlan?.name}</h3>
           <p className="text-gray-500">
@@ -47,10 +47,11 @@ const Summary = () => {
             </p>
           )}
         </div>
-        <div className="flex justify-between">
+      </div>
+
+      <div className="flex justify-between mt-4 mb-14">
         <p>Total per month/year</p>
         <p>amount</p>
-        </div>
       </div>
 
       <div className="flex justify-between">
