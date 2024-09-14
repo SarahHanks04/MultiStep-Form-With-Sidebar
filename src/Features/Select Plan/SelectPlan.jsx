@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { setSelectedPlan } from "../Slice/Slice";
 import Arcade from "../../assets/Arcade.svg";
 import IconAdvance from "../../assets/IconAdvance.svg";
 import IconPro from "../../assets/IconPro.svg";
@@ -7,6 +9,8 @@ import { NavLink } from "react-router-dom";
 
 const SelectPlan = () => {
   const [isYearly, setIsYearly] = useState(false);
+  const dispatch = useDispatch();
+  const [selectedPlan, setSelectedPlanState] = useState(null);
 
   const handleToggle = (value) => {
     setIsYearly(value);
@@ -23,6 +27,11 @@ const SelectPlan = () => {
     { name: "Pro", monthly: "$15/mo", yearly: "$150/yr", image: IconPro },
   ];
 
+  const handlePlanSelection = (plan) => {
+    setSelectedPlanState(plan);
+    dispatch(setSelectedPlan(plan));
+  };
+
   return (
     <div className="container max-w-xl">
       <div className="flex flex-col md:flex-row md:justify-between bg-white w-full">
@@ -35,7 +44,12 @@ const SelectPlan = () => {
             {plans.map((plan, index) => (
               <div
                 key={index}
-                className="border-2 rounded-lg w-full md:w-1/3 p-4 cursor-pointer transition-all duration-300 hover:border-blue-500 focus:outline-none focus:border-blue-500"
+                onClick={() => handlePlanSelection(plan)}
+                className={`border-2 rounded-lg w-full md:w-1/3 p-4 cursor-pointer transition-all duration-300 ${
+                  selectedPlan?.name === plan.name
+                    ? "border-blue-500"
+                    : "hover:border-blue-500"
+                }`}
               >
                 <div className="flex flex-col items-center">
                   <img src={plan.image} alt="" width={50} height={80} />

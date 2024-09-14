@@ -6,6 +6,7 @@ import SelectPlan from "./Features/Select Plan/SelectPlan";
 import AddOnsMonthly from "./Features/AddOns/AddOnsMonthly";
 import AddOnsYearly from "./Features/AddOns/AddOnsYearly";
 import AddOnsPage from "./Features/AddOns/AddOnsPage";
+import Summary from "./Features/Summary/Summary";
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
             {/* <Route path="/add-ons" element={<AddOnsPage />} /> */}
             <Route path="/add-ons" element={<AddOnsMonthly />} />
             <Route path="/add-ons-yearly" element={<AddOnsYearly />} />
+            <Route path="/summary" element={<Summary />} />
           </Route>
         </Routes>
       </div>

@@ -81,7 +81,7 @@ const AddOnsMonthly = () => {
   };
 
   return (
-    <div>
+    <div className="w-full">
       <div className="bg-white rounded-lg">
         <h2 className="text-3xl font-bold mb-3">Pick add-ons</h2>
         <p className="mb-6 text-gray-500">

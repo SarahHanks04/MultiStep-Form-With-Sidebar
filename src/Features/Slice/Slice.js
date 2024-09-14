@@ -1,10 +1,10 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   personalInfo: {
     name: "",
     email: "",
-    phoneNumber: ""
+    phoneNumber: "",
   },
   setAddOnsMonthly: {
     onlineService: false,
@@ -16,10 +16,11 @@ const initialState = {
     largerStorage: false,
     customizableProfile: false,
   },
+  selectedPlan: null,
 };
 
 const formSlice = createSlice({
-  name: 'form',
+  name: "form",
   initialState,
   reducers: {
     setPersonalInfo: (state, action) => {
@@ -28,12 +29,24 @@ const formSlice = createSlice({
     setAddOnsMonthly: (state, action) => {
       state.setAddOnsMonthly = action.payload;
     },
+    // setAddOnsYearly: (state, action) => {
+    //   state.setAddOnsMonthly = action.payload;
+    // },
     setAddOnsYearly: (state, action) => {
-      state.setAddOnsMonthly = action.payload;
-    }
-  }
+      state.setAddOnsYearly = action.payload;
+    },
+
+    setSelectedPlan: (state, action) => {
+      state.selectedPlan = action.payload;
+    },
+  },
 });
 
-export const { setPersonalInfo, setAddOnsMonthly, setAddOnsYearly } = formSlice.actions;
+export const {
+  setPersonalInfo,
+  setSelectedPlan,
+  setAddOnsMonthly,
+  setAddOnsYearly,
+} = formSlice.actions;
 
 export default formSlice.reducer;
