@@ -47,6 +47,10 @@ const Summary = () => {
             </p>
           )}
         </div>
+        <div className="flex justify-between">
+        <p>Total/month/year</p>
+        <p>amount/month or year </p>
+        </div>
       </div>
 
       <div className="flex justify-between">
